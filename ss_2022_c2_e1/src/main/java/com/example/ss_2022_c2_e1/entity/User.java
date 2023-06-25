@@ -16,5 +16,6 @@ public class User {
     private ObjectId Id;
     private String userName;
     private String password;
+
     private Set<Authority> authorities;
 }

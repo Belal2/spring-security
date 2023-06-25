@@ -16,7 +16,6 @@ public class DbUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var u = userRepository.findUserByUserName(username);
-
         return u.map(SecurityUser::new).orElseThrow(() -> new UsernameNotFoundException("User name not fount"));
     }
 }

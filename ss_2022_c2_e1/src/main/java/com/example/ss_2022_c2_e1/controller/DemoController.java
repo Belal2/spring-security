@@ -1,5 +1,7 @@
 package com.example.ss_2022_c2_e1.controller;
 
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +11,9 @@ public class DemoController {
     @GetMapping("/hello")
     public String hello()
     {
+        var u = SecurityContextHolder.getContext().getAuthentication();
+         u.getAuthorities().forEach(System.err::println);
+
         return "Hello";
     }
 }
